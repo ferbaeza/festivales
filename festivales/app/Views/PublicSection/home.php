@@ -1,7 +1,7 @@
-<?= $this->extend('PublicSection\baseLayout') ?>
+<?= $this->extend('PublicSection/baseLayout') ?>
 
 <?= $this->section('css') ?>
-    <link rel="stylesheet" href="<?= base_url('assets\PublicSection\css\homePublic.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/PublicSection/css/homePublic.css') ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
@@ -11,9 +11,12 @@
         });
     </script>
 <?= $this->endSection() ?>
+<?= $this->section('title')?>
+Public Home
+<?= $this->endSection() ?>
+
 <?= $this->section('homePublic')  ?>
 
-<title><?= $title; ?></title>
 
 
 <div class="homePublic">
@@ -23,13 +26,13 @@
             <div class="row ">
                 <div id="colFestival" class="festivalGrid shadow p-3 mb-5 bg-body rounded ms-1">
                     <div class="image">
-                        <img width="300px" height="250px" id="festi" src="<?= base_url('assets\PublicSection\img\indie.jpg')?>"/>
+                        <img width="300px" height="250px" id="festi" src="<?= base_url('assets/PublicSection/img/indie.jpg')?>"/>
                     </div>
                     <div class="cardTittle">Title</div>
                     <div class="card">
                         Informacion sobre los distintos eventos II
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
                 </div>
@@ -41,7 +44,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 
@@ -54,7 +57,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 
@@ -73,7 +76,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 
@@ -86,7 +89,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 
@@ -104,7 +107,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 
@@ -117,7 +120,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 
@@ -130,7 +133,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 
@@ -148,7 +151,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
                 </div>
@@ -165,7 +168,7 @@
                     <div class="card">
                         Informacion sobre los distintos eventos
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-primary">Go </button>
                     </div>
 

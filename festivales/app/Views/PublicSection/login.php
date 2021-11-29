@@ -1,6 +1,6 @@
 <?= $this->extend('PublicSection/baseLayout') ?>
 <?= $this->section('css') ?>
-    <link rel="stylesheet" href="<?= base_url('assets\PublicSection\css\login.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/PublicSection/css/login.css') ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
@@ -10,12 +10,15 @@
         });
     </script>
 <?= $this->endSection() ?>
+<?= $this->section('title')?>
+  Login
+<?= $this->endSection() ?>
+
 
 <?= $this->section('login')  ?>
-
 <div class="main_login">
 <div class="logo">
-    <img src="<?= base_url('\public\assets\PublicSection\img\logo.png')?>"/>
+    <img id="logo" src="<?= base_url('assets/PublicSection/img/logo.png')?>"/>
 </div>
 <form>
   <h1 id="signin">Please sign in</h1>
