@@ -21,7 +21,7 @@
     <script src="../../../public/assets/Admin/js/nav.js"></script>
     <?= $this->renderSection('js')?>
 
-    <title><?=$this->renderSection('title')?></title>
+    <title><?=$this->renderSection('title')?>&nbsp;_&nbsp;Festivales</title>
 </head>
 <body>
     <?= $this->renderSection('homeAdmin') ?>
