@@ -23,6 +23,17 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+//--------------------------------------------
+//namespaces
+if(!defined('ADMIN_NAMESPACE')) define('ADMIN_NAMESPACE', 'App\Controllers\Admin');
+if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', 'App\Controllers\PublicSection');
+
+//
+
+
+
+
+//------------------------------
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -31,7 +42,35 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+//$routes->get('/prueba', 'PruebaController::index');
+
+$routes->group('',function($routes){
+    $routes->get('/', 'Home::index');
+    $routes->get('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
+    $routes->get('/home', 'HomeController::home',['as'=>'home','namespace' => PUBLIC_NAMESPACE] );
+});
+$routes->group('/admin',function($routes){
+    $routes->get('home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','namespace' => ADMIN_NAMESPACE] );
+});
+
+//$routes->get('/', 'Home::index');
+
+$routes->get('/prueba/(:any)', 'PruebaController::index/$1');
+$routes->get('/contacto', 'ContactoController::index');
+$routes->get('/documentation', 'Docs::docs',['as'=>'docs'] );
+//$routes->get('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
+//$routes->get('/home', 'HomeController::home',['as'=>'home','namespace' => PUBLIC_NAMESPACE] );
+$routes->get('/home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','namespace' => ADMIN_NAMESPACE] );
+
+// Ejemplo de Agrupacion de routes//
+
+/*
+$routes->group('productos' function($routes){
+    $routes->get('/productos','productos::showList');
+    $routes->delete('/productos','productos::delete/$1');
+
+});
+*/
 
 /*
  * --------------------------------------------------------------------
