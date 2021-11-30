@@ -41,16 +41,13 @@ class Users extends Migration
             'rol_id'             =>[
                 'type'             =>'INT',
                 'constraint'       =>5,
+                'unsigned'       => true,
                 'null'             =>false,
             ],
         ]);
         $this->forge->addKey('id', true);
         //$this->forge->addForeignKey('rol_id', 'Roles', 'id', 'CASCADE','SET NULL');
-
         $this->forge->createTable('Users');
-
-
-
         //$this->db->enableForeignKeyChecks();
     }
 

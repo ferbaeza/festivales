@@ -25,10 +25,12 @@ class Festivals extends Migration
             ],
             'email'             =>[
                 'type'             =>'VARCHAR',
+                'constraint'        =>'255',
                 'null'             =>false,
             ],
             'price'             =>[
                 'type'             =>'FLOAT',
+                'constraint'        =>5,
                 'null'             =>false,
             ],
             'address'             =>[
@@ -42,10 +44,10 @@ class Festivals extends Migration
                 'null'             =>false,
             ],
             'category_id'             =>[
-                'type'             =>'INT',
-                'constraint'       =>5,
-                'null'             =>false,
-
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+                'null'           =>false,
             ],
         ]);
         $this->forge->addKey('id', true);
