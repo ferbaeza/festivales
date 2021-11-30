@@ -31,28 +31,28 @@ Admin Panel
         <nav class="nav">
             <div> 
                 <a href="#" class="nav_logo"> 
-                    <i class='bx bx-layer nav_logo-icon'></i> 
-                    <span class="nav_logo-name">BBBootstrap</span> 
+                    <i class='fas fa-solar-panel'></i> 
+                    <span class="nav_logo-name">Panel Admin</span> 
                 </a>
                 <div class="nav_list"> 
                     <a href="#" class="nav_link active"> 
-                        <span class="nav_name">Dashboard</span> </a> 
+                        <i class='fas fa-home'></i>
+                        <span class="nav_name">Inicio</span> </a> 
                     <a href="#" class="nav_link"> 
-                        <i class='bx bx-user nav_icon'></i> 
-                        <i class='bx bx-grid-alt nav_icon'></i> 
-                        <span class="nav_name">Users</span> </a> 
+                        <i class='fas fa-music'></i> 
+                        <span class="nav_name">Festivales</span> </a> 
                     <a href="#" class="nav_link"> 
-                        <i class='bx bx-message-square-detail nav_icon'></i> 
-                        <span class="nav_name">Messages</span> </a> 
+                        <i class='fas fa-th'></i> 
+                        <span class="nav_name">Categorias</span> </a> 
                     <a href="#" class="nav_link"> 
-                        <i class='bx bx-bookmark nav_icon'></i> 
-                        <span class="nav_name">Bookmark</span> </a> 
+                        <i class='fas fa-users'></i> 
+                        <span class="nav_name">Usuarios</span> </a> 
                     <a href="#" class="nav_link"> 
-                        <i class='bx bx-folder nav_icon'></i> 
-                        <span class="nav_name">Files</span> </a> 
+                        <i class='fas fa-user-tag'></i> 
+                        <span class="nav_name">Roles</span> </a> 
                     <a href="#" class="nav_link"> 
-                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i> 
-                        <span class="nav_name">Stats</span> </a> 
+                        <i class='fas fa-cogs'></i> 
+                        <span class="nav_name">Configuracion</span> </a> 
                 </div>
             </div> 
             <a href="#" class="nav_link"> 
@@ -63,7 +63,7 @@ Admin Panel
     </div>
     <!--Container Main start-->
     <div class="height-100 bg-light">
-        <h4>Main Components</h4>
+        <h2>Home Admin</h2>
     </div>
     <!--Container Main end-->
 

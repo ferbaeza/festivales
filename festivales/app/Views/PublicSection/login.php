@@ -33,7 +33,7 @@
 </form>
 </div><br>
 <div class="backhome">
-  <p id="log_p">&copy; <?= date('Y') ?> Fernando Baeza CodeIgniter Project</p>
+  <p id="log_p"><i class='fas fa-copyright'></i>2021_<?= date('Y') ?> Fernando Baeza CodeIgniter Project <i class='fas fa-registered'></i></p>
   <a href="<?= route_to("home")?>">Inicio Publico</a>
   <a href="<?= route_to("home_admin")?>">Incio Privado</a>
 
