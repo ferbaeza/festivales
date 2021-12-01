@@ -22,11 +22,13 @@ class Users extends Migration
                 'type'             => 'VARCHAR',
                 'constraint'       => '100',
                 'null'             =>false,
+                'unique'            =>true,
             ],
             'password'             =>[
                 'type'             =>'VARCHAR',
                 'constraint'       =>'255',
                 'null'             =>false,
+                'unique'            =>true,
             ],
             'name'             =>[
                 'type'             =>'VARCHAR',
