@@ -41,7 +41,7 @@ class CategorySeeder extends Seeder
                 'updated' =>$updated->format('Y-m-d H:i:s'),
             ],
         ];
-        //d($categories);
+        //d($categories);   //asi se imprime en consola para comprobar que los seeder funcionan bien
         $builder = $this->db->table('categories');
         $builder->insertBatch($categories);
 

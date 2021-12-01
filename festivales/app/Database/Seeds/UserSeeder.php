@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
                 'updated' =>$updated->format('Y-m-d H:i:s'),
             ];
         }
-        //d($users);
+        //d($users);    //asi se imprime en consola para comprobar que los seeder funcionan bien
         $builder = $this->db->table('users');
         $builder->insertBatch($users);
 

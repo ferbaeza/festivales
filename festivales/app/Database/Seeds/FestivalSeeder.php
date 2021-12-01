@@ -31,7 +31,7 @@ class FestivalSeeder extends Seeder
                 
 
             ];
-            //d($festivals);
+            //d($festivals);    //asi se imprime en consola para comprobar que los seeder funcionan bien
             $builder = $this->db->table('festivals');
             $builder->insertBatch($festivals);
     
