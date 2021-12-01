@@ -7,6 +7,19 @@ use CodeIgniter\Entity\Entity;
 class Festivals extends Entity
 {
     protected $datamap = [];
-    protected $dates   = ['created_at', 'updated_at', 'deleted_at'];
+    protected $attributes = [
+        'id'=>null,
+        'name'=>null,
+        'email'=>null,
+        'price'=>null,
+        'address'=>null,
+        'image_url'=>null,
+        'category_id'=>null
+    ];    
+    protected $dates   = [
+        'created',
+        'updated',
+        'deleted'
+    ];
     protected $casts   = [];
 }
