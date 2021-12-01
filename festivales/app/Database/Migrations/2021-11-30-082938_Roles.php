@@ -20,6 +20,19 @@ class Roles extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'created'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+            'updated'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+            'deleted'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('Roles');

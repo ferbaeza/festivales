@@ -44,6 +44,19 @@ class Users extends Migration
                 'unsigned'       => true,
                 'null'             =>false,
             ],
+            'created'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+            'updated'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+            'deleted'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+
         ]);
         $this->forge->addKey('id', true);
         //$this->forge->addForeignKey('rol_id', 'Roles', 'id', 'CASCADE','SET NULL');

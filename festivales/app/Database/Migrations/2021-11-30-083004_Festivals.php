@@ -49,6 +49,19 @@ class Festivals extends Migration
                 'unsigned'       => true,
                 'null'           =>false,
             ],
+            'created'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+            'updated'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+            'deleted'   =>[
+                'type'          =>'DATETIME',
+                'null'          =>true,
+            ],
+
         ]);
         $this->forge->addKey('id', true);
         //$this->forge->addForeignKey('category_id', 'Categories', 'id', 'CASCADE','SET NULL');
