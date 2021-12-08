@@ -62,6 +62,11 @@ $routes->get('/documentation', 'Docs::docs',['as'=>'docs'] );
 //$routes->get('/home', 'HomeController::home',['as'=>'home','namespace' => PUBLIC_NAMESPACE] );
 $routes->get('/home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','namespace' => ADMIN_NAMESPACE] );
 
+$routes->get('/documentacion/ajax', "Home::testAjax", ['as' => 'test_ajax']);
+$routes->post('/documentacion/ajax', "Home::testAjax", ['as' => 'test_ajax']);
+
+
+
 // Ejemplo de Agrupacion de routes//
 
 /*
