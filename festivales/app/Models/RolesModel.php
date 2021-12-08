@@ -40,4 +40,25 @@ class RolesModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+
+
+    public function findRoles($id =null)
+    {
+        if(is_null($id)){
+            return $this->findAll();
+        }
+        return $this->where(['id'=>$id])
+            ->first();
+    }
 }
+$data= [
+    "name" => "Primavera Sound"
+];
+$rol= new RolesModel($data);
+$rolModel= new RolesModel();
+$rolModel->save($rol);
+
+$role= $rolModel->findRoles();
+d($role);

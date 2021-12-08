@@ -40,4 +40,24 @@ class UsersModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+
+    public function findUsers($id =null)
+    {
+        if(is_null($id)){
+            return $this->findAll();
+        }
+        return $this->where(['id'=>$id])
+            ->first();
+    }
 }
+$data= [
+    "name" => "Primavera Sound"
+];
+$us= new UsersModel($data);
+$usModel= new UsersModel();
+$usModel->save($us);
+
+$user= $usModel->findUsers();
+d($user);
