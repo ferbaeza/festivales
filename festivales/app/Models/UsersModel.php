@@ -51,6 +51,8 @@ class UsersModel extends Model
         return $this->where(['id'=>$id])
             ->first();
     }
+
+    
 }
 $data= [
     "name" => "Primavera Sound"

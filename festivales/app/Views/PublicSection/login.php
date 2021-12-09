@@ -8,6 +8,29 @@
         $(document).ready(function(){
             console.log('READY!');
         });
+        $.ajax({
+          url: "<?= route_to("saveForm")  ?>";
+          type: "POST",
+          processData: false,
+          contentType: false,
+          async: true,
+          timeout: 10000,
+          beforeSend: ( xhr ) =>{},
+          succes: (response)=>{
+            $(this).trigger("reset");
+            alert("Petcion OK");
+          },
+          error (xhr, status, error)=>{
+            alert("Ha habido un error");
+          },
+          complete: () =>{}
+
+        });
+
+
+
+
+
     </script>
 <?= $this->endSection() ?>
 <?= $this->section('title')?>
@@ -17,26 +40,28 @@
 
 <?= $this->section('login')  ?>
 <div class="main_login">
-<div class="logo">
-    <img id="logo" src="<?= base_url('assets/PublicSection/img/logo.png')?>"/>
+  <div class="logo">
+      <img id="logo" src="<?= base_url('assets/PublicSection/img/logo.png')?>"/>
 </div>
-<form>
-  <h1 id="signin">Please sign in</h1>
-  <div class="mb-3">
-    <input placeholder="Email adress" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
+  <form>
+    <h1 id="signin">Please sign in</h1>
+    <div class="mb-3">
+      <input name="mail" placeholder="Email adress" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
 
-  <div class="mb-3">
-    <input placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <button type="submit" class="btn btn-primary" id="subLogin">Submit</button>
-</form>
+    <div class="mb-3">
+      <input name="passwd" placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-primary" id="subLogin">Submit</button>
+  </form>
 </div><br>
+
+
+
 <div class="backhome">
   <p id="log_p"><i class='fas fa-copyright'></i>2021_<?= date('Y') ?> Fernando Baeza CodeIgniter Project <i class='fas fa-registered'></i></p>
   <a href="<?= route_to("home")?>">Inicio Publico</a>
   <a href="<?= route_to("home_admin")?>">Incio Privado</a>
-
 </div>
 
 

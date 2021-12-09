@@ -6,28 +6,27 @@
 
 <?= $this->section('js') ?>
     <script type="text/javascript">
+        let dataJSON={
+            id: 1,
+            type: "admin",
+            name: "Miguel"
+        }
         $.ajax({
             url:"<?= route_to("test_ajax") ?>",
-            type:"GET",
+            type:"POST",
+            data: JSON.stringify(dataJSON),
+            contentType: "application/json",
             async: true,
             timeout: 10000,
             dataType: "json",
-            beforeSend: (xhr)=>{
-
-            },
+            beforeSend: (xhr)=>{},
             succes: (response)=>{
-                let responseJSON = JJSON.parse(response);
-                if (responseJSON.status== "OK")
                 alert("Petcion correcta")
-                else
-                alert("La peticion ha ido mal")
             },
             error: (xhr, status, error)=>{
                 alert("Ha surgido algun error")
             },
-            complete:()=>{
-
-            }
+            complete:()=>{}
         });
     </script>
 <?= $this->endSection() ?>
