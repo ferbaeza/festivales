@@ -13,9 +13,9 @@ class Categories extends Entity
     ];
 
     protected $dates   = [
-        'created',
-        'updated',
-        'deleted'
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
     protected $casts   = [];
 }

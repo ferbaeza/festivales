@@ -20,9 +20,9 @@ class FestivalsModel extends Model
     // Dates
     protected $useTimestamps = true;
     //rotected $dateFormat    = 'datetime';
-    protected $createdField  = 'created';
-    protected $updatedField  = 'updated';
-    protected $deletedField  = 'deleted';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -56,7 +56,7 @@ class FestivalsModel extends Model
 $data= [
     "name" => "Primavera Sound"
 ];
-$fes= new FestivalsModel($data);
+$fes= new Festivals($data);
 $fesModel= new FestivalsModel();
 $fesModel->save($fes);
 

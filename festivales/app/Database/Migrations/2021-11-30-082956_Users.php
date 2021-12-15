@@ -8,7 +8,7 @@ class Users extends Migration
 {
     public function up()
     {
-        //$this->db->disableForeignKeyChecks();
+        $this->db->disableForeignKeyChecks();
 
         $this->forge->addField([
             'id'          => [
@@ -44,26 +44,26 @@ class Users extends Migration
                 'type'             =>'INT',
                 'constraint'       =>5,
                 'unsigned'       => true,
-                'null'             =>false,
+                'null'             =>true,
             ],
-            'created'   =>[
+            'created_at'   =>[
                 'type'          =>'DATETIME',
                 'null'          =>true,
             ],
-            'updated'   =>[
+            'updated_at'   =>[
                 'type'          =>'DATETIME',
                 'null'          =>true,
             ],
-            'deleted'   =>[
+            'deleted_at'   =>[
                 'type'          =>'DATETIME',
                 'null'          =>true,
             ],
 
         ]);
         $this->forge->addKey('id', true);
-        //$this->forge->addForeignKey('rol_id', 'Roles', 'id', 'CASCADE','SET NULL');
+        $this->forge->addForeignKey('rol_id', 'Roles', 'id', 'CASCADE','SET NULL');
         $this->forge->createTable('Users');
-        //$this->db->enableForeignKeyChecks();
+        $this->db->enableForeignKeyChecks();
     }
 
     public function down()

@@ -20,9 +20,9 @@ class RolesModel extends Model
     // Dates
     protected $useTimestamps = true;
     //protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created';
-    protected $updatedField  = 'updated';
-    protected $deletedField  = 'deleted';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -56,7 +56,7 @@ class RolesModel extends Model
 $data= [
     "name" => "Primavera Sound"
 ];
-$rol= new RolesModel($data);
+$rol= new Roles($data);
 $rolModel= new RolesModel();
 $rolModel->save($rol);
 

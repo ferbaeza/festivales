@@ -17,9 +17,9 @@ class Festivals extends Entity
         'category_id'=>null
     ];    
     protected $dates   = [
-        'created',
-        'updated',
-        'deleted'
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
     protected $casts   = [];
 }

@@ -20,9 +20,9 @@ class CategoriesModel extends Model
     // Dates
     protected $useTimestamps = true;
     //protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created';
-    protected $updatedField  = 'updated';
-    protected $deletedField  = 'deleted';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -53,7 +53,7 @@ class CategoriesModel extends Model
 $data= [
     "name" => "Primavera Sound"
 ];
-$cat= new CategoriesModel($data);
+$cat= new Categories($data);
 $catModel= new CategoriesModel();
 $catModel->save($cat);
 

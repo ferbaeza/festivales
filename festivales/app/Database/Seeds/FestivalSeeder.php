@@ -24,8 +24,8 @@ class FestivalSeeder extends Seeder
                 'price'=> $faker->randomFloat($nbMaxDecimals = NULL, $min = 14, $max = 55),
                 'address'=> $faker->streetAddress,
                 'image_url'=> $faker->imageUrl($width = 640, $height = 480),
-                'created' => $created->format('Y-m-d H:i:s'),
-                'updated' => $updated->format('Y-m-d H:i:s'),
+                'created_at' => $created->format('Y-m-d H:i:s'),
+                'updated_at' => $updated->format('Y-m-d H:i:s'),
 
 
                 

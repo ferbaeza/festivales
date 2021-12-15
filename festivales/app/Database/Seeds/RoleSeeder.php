@@ -18,13 +18,13 @@ class RoleSeeder extends Seeder
         $roles=[
             [
                 'name' => 'admin',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                'updated' =>$updated->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                'updated_at' =>$updated->format('Y-m-d H:i:s'),
             ],
             [
                 'name' => 'app_client',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                'updated' =>$updated->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                'updated_at' =>$updated->format('Y-m-d H:i:s'),
             ]
         ];
         //d($roles);    //asi se imprime en consola para comprobar que los seeder funcionan bien

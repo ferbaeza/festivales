@@ -27,33 +27,33 @@ class CategorySeeder extends Seeder
         $categories=[
             [
                 'name'  =>'indie',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                'updated' =>$today->format('Y-m-d H:i:s'),
-                //'updated' =>$updated->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                'updated_at' =>$today->format('Y-m-d H:i:s'),
+                //'updated_at' =>$updated->format('Y-m-d H:i:s'),
             ],
             [
                 'name'  =>'pop',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                //'updated' =>$updated->format('Y-m-d H:i:s'),
-                'updated' =>$today->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                //'updated_at' =>$updated->format('Y-m-d H:i:s'),
+                'updated_at' =>$today->format('Y-m-d H:i:s'),
             ],
             [
                 'name'  =>'rock',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                //'updated' =>$updated->format('Y-m-d H:i:s'),
-                'updated' =>$today->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                //'updated_at' =>$updated->format('Y-m-d H:i:s'),
+                'updated_at' =>$today->format('Y-m-d H:i:s'),
             ],
             [
                 'name'  =>'techno',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                //'updated' =>$updated->format('Y-m-d H:i:s'),
-                'updated' =>$today->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                //'updated_at' =>$updated->format('Y-m-d H:i:s'),
+                'updated_at' =>$today->format('Y-m-d H:i:s'),
             ],
             [
                 'name'  =>'classic',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                //'updated' =>$updated->format('Y-m-d H:i:s'),
-                'updated' =>$today->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                //'updated_at' =>$updated->format('Y-m-d H:i:s'),
+                'updated_at' =>$today->format('Y-m-d H:i:s'),
             ],
         ];
         d($categories);         //asi se imprime en consola para comprobar que los seeder funcionan bien

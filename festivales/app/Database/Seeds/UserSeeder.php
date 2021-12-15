@@ -22,8 +22,8 @@ class UserSeeder extends Seeder
                 'name' =>$faker->firstName('male'|'female'),
                 'surname' =>$faker->lastName,
                 'rol_id' =>'admin',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                'updated' =>$updated->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                'updated_at' =>$updated->format('Y-m-d H:i:s'),
             ];
         }
         for($i=0; $i<=7; $i++){
@@ -36,8 +36,8 @@ class UserSeeder extends Seeder
                 'name' =>$faker->firstName('male'|'female'),
                 'surname' =>$faker->lastName,
                 'rol_id' =>'app_client',
-                'created' =>$created->format('Y-m-d H:i:s'),
-                'updated' =>$updated->format('Y-m-d H:i:s'),
+                'created_at' =>$created->format('Y-m-d H:i:s'),
+                'updated_at' =>$updated->format('Y-m-d H:i:s'),
             ];
         }
         //d($users);    //asi se imprime en consola para comprobar que los seeder funcionan bien

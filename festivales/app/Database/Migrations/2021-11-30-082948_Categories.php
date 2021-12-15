@@ -20,15 +20,15 @@ class Categories extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'created'   =>[
+            'created_at'   =>[
                 'type'          =>'DATETIME',
                 'null'          =>true,
             ],
-            'updated'   =>[
+            'updated_at'   =>[
                 'type'          =>'DATETIME',
                 'null'          =>true,
             ],
-            'deleted'   =>[
+            'deleted_at'   =>[
                 'type'          =>'DATETIME',
                 'null'          =>true,
             ],
