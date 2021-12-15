@@ -8,7 +8,7 @@ use App\Models\UsersModel;
 
 class LoginController extends BaseController
 {
-    public function login()
+    public function index()
     {
         return view('/PublicSection/login');
     }

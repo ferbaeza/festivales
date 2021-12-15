@@ -17,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('LoginController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -36,8 +36,8 @@ if(!defined('AJAX_NAMESPACE')) define('AJAX_NAMESPACE', 'App\Controllers\TestAja
 
 $routes->group('',function($routes){
     $routes->get('/', 'Home::index');
-    $routes->get('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
-    $routes->get('/home', 'HomeController::home',['as'=>'home','namespace' => PUBLIC_NAMESPACE] );
+    $routes->get('/login', 'LoginController::index',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
+    $routes->get('/home', 'HomeController::home',['filter'=>'auth', 'as'=>'home','namespace' => PUBLIC_NAMESPACE] );
 });
 //$routes->get('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
 //$routes->get('/home', 'HomeController::home',['as'=>'home','namespace' => PUBLIC_NAMESPACE] );
@@ -49,7 +49,7 @@ $routes->group('',function($routes){
 //-------------------------------------------------------------------
 
 $routes->group('/admin',function($routes){
-    $routes->get('home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','namespace' => ADMIN_NAMESPACE] );
+    $routes->get('home_admin', 'HomeAdminController::home_admin',['filter'=>'auth','as'=>'home_admin','namespace' => ADMIN_NAMESPACE] );
 });
 
 //---------$routes->get('/', 'Home::index');
