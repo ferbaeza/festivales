@@ -10,6 +10,7 @@ class Users extends Entity
     protected $attributes = [
         'id'=>null,
         'username'=>null,
+        'mail'=>null,
         'password'=>null,
         'name'=>null,
         'surname'=>null,

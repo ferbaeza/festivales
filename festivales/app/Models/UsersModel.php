@@ -7,43 +7,23 @@ use App\Entities\Users;
 
 class UsersModel extends Model
 {
-    protected $DBGroup          = 'default';
     protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $insertID         = 0;
     protected $returnType       = Users::class;
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = ['username', 'password', 'name', 'surname'];
+    protected $allowedFields    = ['username', 'mail', 'password', 'name', 'surname', 'rol_id'];
 
     // Dates
+    protected $useSoftDeletes   = true;
     protected $useTimestamps = true;
     //protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
-
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
 
 
-
-    public function findUsers($id =null)
+    public function findUsersId($id =null)
     {
         if(is_null($id)){
             return $this->findAll();
@@ -51,15 +31,38 @@ class UsersModel extends Model
         return $this->where(['id'=>$id])
             ->first();
     }
+    public function findUsersMail($mail =null)
+    {
+        if(is_null($mail)){
+            return $this->findAll();
+        }
+        return $this->where(['mail'=>$mail])
+            ->first();
+    }
+    public function findUsersPassword($password =null)
+    {
+        if(is_null($password)){
+            return $this->findAll();
+        }
+        return $this->where(['password'=>$password])
+            ->first();
+    }
+    public function findUsersName($name =null)
+    {
+        if(is_null($name)){
+            return $this->findAll();
+        }
+        return $this->where(['password'=>$name])
+            ->first();
+    }
+    public function findUsersUpdated($updated_at =null)
+    {
+        if(is_null($updated_at)){
+            return $this->findAll();
+        }
+        return $this->where(['updated_at'=>$updated_at])
+            ->first();
+    }
 
     
 }
-$data= [
-    "name" => "Primavera Sound"
-];
-$us= new Users($data);
-$usModel= new UsersModel();
-$usModel->save($us);
-
-$user= $usModel->findUsers();
-d($user);

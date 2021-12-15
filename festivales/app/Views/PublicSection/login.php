@@ -8,9 +8,15 @@
     $(document).ready(function(){
       console.log('READY!');
     });
-    $.ajax({
+
+    $('#formLogin').on("submit", function(event){
+      event.preventDefault();
+      let data = new FormData(this);
+
+      $.ajax({
       url: "<?= route_to("saveForm")  ?>";
       type: "POST",
+      data:data,
       processData: false,
       contentType: false,
       async: true,
@@ -26,6 +32,11 @@
       complete: () =>{}
 
     });
+
+    });
+
+
+
   </script>
 <?= $this->endSection() ?>
 
@@ -40,7 +51,7 @@
   <div class="logo">
       <img id="logo" src="<?= base_url('assets/PublicSection/img/logo.png')?>"/>
 </div>
-  <form>
+  <form id="formLogin" method="POST">
     <h1 id="signin">Please sign in</h1>
     <div class="mb-3">
       <input name="mail" placeholder="Email adress" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
