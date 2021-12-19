@@ -12,21 +12,21 @@ El error esta en null, debe de ir true si cuando se borran en casacada los pones
 SI
 
 
-
-----------------ALL DONE-------------------
-
-
-
-
-
 # Models
 # Ver si la funcionalidad esta bien planteada
 # Como comprobar que funciona correctamente
 
+# Seeder Users  -> 
+    Verificar el uso del hash_passwd  -> Se lo pasamos en el seeder xq no vamos a tener un registro
 
 
+----------------ALL DONE-------------------
 
-# Ejercicio 7 paso de parametros con AJAX en el login
+
+# Ejercicio 7 paso de parametros con AJAX en el login-> 
+    No llega a entrar en LoginController
+
+
 # uso de las clases de los archivos de configugarion
 
-# Como pasar el filtro en las rutas
+

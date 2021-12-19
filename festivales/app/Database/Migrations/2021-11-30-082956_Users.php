@@ -70,6 +70,7 @@ class Users extends Migration
         $this->forge->addForeignKey('rol_id', 'Roles', 'id', 'CASCADE','SET NULL');
         $this->forge->createTable('Users');
         $this->db->enableForeignKeyChecks();
+        $this->db->disableForeignKeyChecks();
     }
 
     public function down()

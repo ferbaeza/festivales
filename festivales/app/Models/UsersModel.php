@@ -47,12 +47,12 @@ class UsersModel extends Model
         return $this->where(['password'=>$password])
             ->first();
     }
-    public function findUsersName($name =null)
+    public function findUsersRol($rol_id =null)
     {
-        if(is_null($name)){
+        if(is_null($rol_id)){
             return $this->findAll();
         }
-        return $this->where(['password'=>$name])
+        return $this->where(['rol_id'=>$rol_id])
             ->first();
     }
     public function findUsersUpdated($updated_at =null)

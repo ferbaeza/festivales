@@ -10,6 +10,9 @@ class RoleSeeder extends Seeder
 {
     public function run()
     {
+        $this->db->table('roles')->where("id >", 0)->delete();
+        $this->db->query("ALTER TABLE roles AUTO_INCREMENT=1");
+
         $faker = Factory::create();
         $created= $faker->dateTime();
         $updated= $faker->dateTime();

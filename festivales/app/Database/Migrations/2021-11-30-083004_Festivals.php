@@ -67,6 +67,7 @@ class Festivals extends Migration
         $this->forge->addForeignKey('category_id', 'Categories', 'id', 'CASCADE','SET NULL');
         $this->forge->createTable('Festivals');
         $this->db->enableForeignKeyChecks();
+        //$this->db->disableForeignKeyChecks();
     }
 
     public function down()

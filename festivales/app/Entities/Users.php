@@ -23,4 +23,9 @@ class Users extends Entity
         'deleted_at'
     ];
     protected $casts   = [];
+
+    //protected function setPass(string $password){
+    //    $this->attributes['password'] = password_hash($password, PASSWORD_DEFAULT);
+    //}
+
 }

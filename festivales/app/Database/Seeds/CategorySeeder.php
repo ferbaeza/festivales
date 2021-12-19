@@ -11,6 +11,9 @@ class CategorySeeder extends Seeder
 {
     public function run()
     {   
+        $this->db->table('categories')->where("id >", 0)->delete();
+        $this->db->query("ALTER TABLE categories AUTO_INCREMENT=1");
+
         /***Using the library Faker***/
         $faker = Factory::create();
         $created= $faker->dateTime();

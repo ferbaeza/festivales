@@ -7,43 +7,58 @@
   <script type="text/javascript">
     $(document).ready(function(){
       console.log('READY!');
-    });
+  
 
     $('#formLogin').on("submit", function(event){
       event.preventDefault();
       let data = new FormData(this);
 
       $.ajax({
-      url: "<?= route_to("saveForm")  ?>";
-      type: "POST",
-      data:data,
-      processData: false,
-      contentType: false,
-      async: true,
-      timeout: 10000,
-      beforeSend: ( xhr ) =>{},
-      succes: (response)=>{
+        url: "<?= route_to("login")?>",
+        type: "POST",
+        data:data,
+        processData: false,
+        contentType: false,
+        async: true,
+        timeout: 10000,
+        beforeSend: ( xhr ) =>{},
+        succes: (response)=>{
+          console.log(response.status);
+          if(response.status=="ok"){
+            console.log();
+            window.location.replace('<?php route_to('/home_admin') ?>');
+          }
+          if (response.data.rol == 2){
+            window.location.replace('<?php route_to('/home_admin') ?>');
+          }
+
         $(this).trigger("reset");
         alert("Petcion OK");
-      },
-      error: (xhr, status, error)=>{
-        alert("Ha habido un error");
-      },
-      complete: () =>{}
+        },
+        error: (xhr, status, error)=>{
+          alert("Ha habido un error en el envio de datos del Form");
+        },
+        complete: () =>{}
+
+      });
 
     });
 
-    });
-
+  });
 
 
   </script>
 <?= $this->endSection() ?>
 
 
+
+
 <?= $this->section('title')?>
   Login
 <?= $this->endSection() ?>
+
+
+
 
 
 <?= $this->section('login')  ?>
@@ -63,6 +78,9 @@
     <button type="submit" class="btn btn-primary" id="subLogin">Submit</button>
   </form>
 </div><br>
+
+
+
 
 
 

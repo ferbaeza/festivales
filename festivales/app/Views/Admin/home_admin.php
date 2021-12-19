@@ -25,7 +25,9 @@ Admin Panel
         <div class="header_toggle"> 
             <i class='bx bx-menu' id="header-toggle"> </i> 
         </div>
-        <div class="header_img"> <img src="" alt=""> </div>
+        <div class="header_img">
+            <img width="300" height="200" src="/public/assets/PublicSection/img/pop.jpg" alt="logo"> 
+        </div>
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
