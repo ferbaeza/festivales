@@ -39,6 +39,15 @@ class UsersModel extends Model
         return $this->where(['mail'=>$mail])
             ->first();
     }
+    public function findUsersMailTwo($mail =null)
+    {
+        if(is_null($mail)){
+            return $this->findAll();
+        }
+        $login = "mail= '$mail' OR username = '$mail'";
+        return $this->where($login)
+            ->first();
+    }
     public function findUsersPassword($password =null)
     {
         if(is_null($password)){

@@ -6,7 +6,7 @@
 <?= $this->section('js') ?>
   <script type="text/javascript">
     $(document).ready(function(){
-      console.log('READY!');
+      //console.log('READY!');
   
 
     $('#formLogin').on("submit", function(event){
@@ -22,18 +22,20 @@
         async: true,
         timeout: 10000,
         beforeSend: ( xhr ) =>{},
-        succes: (response)=>{
-          console.log(response.status);
-          if(response.status=="ok"){
-            console.log();
-            window.location.replace('<?php route_to('/home_admin') ?>');
+        success: (response)=>{
+          let data =JSON.parse(response);
+          console.log("Peticion recibida");
+          console.log(data);
+          console.log(data.data.rol);
+          console.log(data.data.mail);
+          if(data.data.rol=="admin"){
+            console.log("Admin entry correctly");
+            window.location.replace('<?= route_to("home_admin") ?>');
+          }else if(data.data.rol=='app_client'){
+            console.log("Public entry correctly");
+            window.location.replace('<?= route_to("home") ?>');
           }
-          if (response.data.rol == 2){
-            window.location.replace('<?php route_to('/home_admin') ?>');
-          }
-
         $(this).trigger("reset");
-        alert("Petcion OK");
         },
         error: (xhr, status, error)=>{
           alert("Ha habido un error en el envio de datos del Form");
@@ -69,7 +71,7 @@
   <form id="formLogin" method="POST">
     <h1 id="signin">Please sign in</h1>
     <div class="mb-3">
-      <input name="mail" placeholder="Email adress" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input name="mail" placeholder="Email adress" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
 
     <div class="mb-3">

@@ -49,12 +49,4 @@ class RolesModel extends Model
             ->first();
     }
 }
-$data= [
-    "name" => "Primavera Sound"
-];
-$rol= new Roles($data);
-$rolModel= new RolesModel();
-$rolModel->save($rol);
 
-$role= $rolModel->findRoles();
-d($role);

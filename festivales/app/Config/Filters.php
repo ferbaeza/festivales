@@ -6,7 +6,9 @@ use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
-use App\Filters\LoginAuth;
+use App\Filters\Auth;
+use App\Filters\AuthPrivate;
+use App\Filters\AuthPublic;
 
 class Filters extends BaseConfig
 {
@@ -20,8 +22,7 @@ class Filters extends BaseConfig
         'csrf'     => CSRF::class,
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
-        'auth'     => Auth :: class,
-        'login_auth'=>LoginAuth::class,
+        'auth'     => Auth::class,
         'private_auth'=>AuthPrivate::class,
         'public__auth'=>AuthPublic::class,
     ];

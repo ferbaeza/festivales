@@ -11,7 +11,18 @@ class UtilLibrary{
         return json_encode($response);
     }
 
+    public function checkUserAdmin($rol){
+        if ($rol ==1){
+            return true;
+        }return false;
+    }
+
+
+
+
 }
+
+
 
 
 

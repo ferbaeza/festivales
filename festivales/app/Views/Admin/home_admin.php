@@ -19,14 +19,23 @@ Admin Panel
 
 
 <?= $this->section('homeAdmin')  ?>
+<?php $session=session(); ?>
+
 
 <body id="body-pd">
     <header class="header" id="header">
         <div class="header_toggle"> 
             <i class='bx bx-menu' id="header-toggle"> </i> 
-        </div>
+            
+        </div>        
+            <h1 class="shadow p-3 mb-5 bg-body rounded ms-1">Hi <?= $session->get("username");  ?></h1>
+
+        <div class="">
         <div class="header_img">
             <img width="300" height="200" src="/public/assets/PublicSection/img/pop.jpg" alt="logo"> 
+        </div>
+
+
         </div>
     </header>
     <div class="l-navbar" id="nav-bar">
@@ -56,10 +65,11 @@ Admin Panel
                         <i class='fas fa-cogs'></i> 
                         <span class="nav_name">Configuracion</span> </a> 
                 </div>
-            </div> 
-            <a href="#" class="nav_link"> 
+            </div>
+            <a href="<?= route_to("logout")?>" class="nav_link"> 
                 <i class='bx bx-log-out nav_icon'></i> 
-                <span class="nav_name">SignOut</span> 
+                <span class="nav_name">
+                SignOut</span>
             </a>
         </nav>
     </div>

@@ -17,10 +17,16 @@ Public Home
 
 <?= $this->section('homePublic')  ?>
 
-
+<?php $session=session(); ?>
 
 <div class="homePublic">
     <div class="container">
+    <div class="btn-group mb-3 rounded ms-1" role="group" aria-label="Basic example">
+    <a style="margin-right:30px" href="<?= route_to("logout")?>"><button type="button" class="btn btn-dark rounded ms-1">Logout </button></a>
+        <h1 class="shadow p-3 mb-5 bg-body rounded ms-1">Name <?= $session->get("username");  ?></h1>
+    </div>
+
+        
         <div class="category">
             <h1>Indie</h1>
             <div class="row ">

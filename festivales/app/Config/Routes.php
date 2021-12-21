@@ -36,9 +36,10 @@ if(!defined('AJAX_NAMESPACE')) define('AJAX_NAMESPACE', 'App\Controllers\TestAja
 //-------------------------------------------------------------------
 $routes->group('',function($routes){
     $routes->get('/', 'LoginController::index',['as'=>'index','namespace' => PUBLIC_NAMESPACE] );
+    $routes->get('/logout', 'LogoutController::logout',['as'=>'logout','namespace' => PUBLIC_NAMESPACE] );
     $routes->post('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
     //$routes->get('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
-    $routes->get('/home', 'HomeController::home',['as'=>'home', 'filter' =>'login_auth' ,'namespace' => PUBLIC_NAMESPACE] );  //'filter'=>'auth', 
+    $routes->get('/home', 'HomeController::home',['as'=>'home','namespace' => PUBLIC_NAMESPACE] );  //'filter'=>'auth', 
 });
 
 
@@ -50,7 +51,7 @@ $routes->group('/admin',function($routes){
 });
 //---------$routes->get('/', 'Home::index');
 $routes->get('/prueba/(:any)', 'PruebaController::index/$1');
-$routes->get('/home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','namespace' => ADMIN_NAMESPACE] );
+$routes->get('/home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin', 'filter' =>'private_auth','namespace' => ADMIN_NAMESPACE] );
 //-------------------------------------------------------------------
 //--Route testAjax
 //--------------------------------------------------------------------
