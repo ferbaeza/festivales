@@ -26,8 +26,18 @@
           let data =JSON.parse(response);
           console.log("Peticion recibida");
           console.log(data);
-          console.log(data.data.rol);
           console.log(data.data.mail);
+          if (data.message == "Password de usuariuo no coincide"){
+            console.log(data.message);
+            alert("Password de usuariuo no coincide");
+            
+          }
+          if (data.message == "Usuario no encontrado"){
+            console.log(data.message);
+            alert("Usuario no encontrado");
+          }
+
+
           if(data.data.rol=="admin"){
             console.log("Admin entry correctly");
             window.location.replace('<?= route_to("home_admin") ?>');
@@ -81,10 +91,25 @@
   </form>
 </div><br>
 
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="me-auto">Error</strong>
+    <small>login</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+</div>
 
-
-
-
+<div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
 
 <div class="backhome">
   <p id="log_p"><i class='fas fa-copyright'></i>2021_<?= date('Y') ?> Fernando Baeza CodeIgniter Project <i class='fas fa-registered'></i></p>

@@ -23,8 +23,8 @@ class Filters extends BaseConfig
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
         'auth'     => Auth::class,
-        'private_auth'=>AuthPrivate::class,
-        'public__auth'=>AuthPublic::class,
+        'auth_private'=>AuthPrivate::class,
+        'auth_public'=>AuthPublic::class,
     ];
 
     /**

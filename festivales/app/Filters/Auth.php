@@ -5,6 +5,8 @@ namespace App\Filters;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use Config\UserProfiles;
+
 
 class Auth implements FilterInterface
 {
@@ -28,20 +30,17 @@ class Auth implements FilterInterface
         $session = session();
 
         if(is_null($session->get('username'))){
-            return redirect()->route("index");
         }else{
             $rol = $session->get("rol");
-            if ($rol == 'admin'){
+            if ($rol ==  UserProfiles::ADMIN_ROLE){
                 return redirect()->route("home_admin");
             }
-            else if ($rol == 'app_client'){
-                return redirect()->route("home_admin");
-    
-            }else{
+            else 
                 return redirect()->route("home");
-            }
         }
-    }
+            
+        }
+    
 
     /**
      * Allows After filters to inspect and modify the response

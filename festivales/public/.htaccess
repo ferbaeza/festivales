@@ -47,3 +47,9 @@ Options All -Indexes
 # Disable server signature start
 	ServerSignature Off
 # Disable server signature end
+
+# ENABLE CORS
+
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Headers "origin, x-requested-with-ajax "
+Header add Access-Control-Allow-Methods "PUT, POST, DELETE"

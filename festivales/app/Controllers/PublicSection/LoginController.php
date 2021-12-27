@@ -32,7 +32,6 @@ class LoginController extends BaseController
             //Compruebo si existe el user
 
             $user =  $user->findUsersMailTwo($mail);
-            $id = $user->id;
             if($user != null){
                 $password_hash= $user->password;
                 if(password_verify($passwd,$password_hash )){

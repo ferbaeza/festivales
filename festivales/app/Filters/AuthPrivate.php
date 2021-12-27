@@ -5,6 +5,8 @@ namespace App\Filters;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use Config\UserProfiles;
+
 
 class AuthPrivate implements FilterInterface
 {
@@ -29,6 +31,13 @@ class AuthPrivate implements FilterInterface
 
         if(is_null($session->get("username"))){
             return redirect()->route("index");
+        }else{
+            $rol = $session->get("rol");
+            if ($rol ==  UserProfiles::APP_CLIENT_ROLE){
+                return redirect()->route("home");
+            }
+            else 
+                return redirect()->route("home_admin");
         }
     }
 

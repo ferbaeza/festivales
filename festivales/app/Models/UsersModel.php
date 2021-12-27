@@ -31,6 +31,11 @@ class UsersModel extends Model
         return $this->where(['id'=>$id])
             ->first();
     }
+
+
+
+
+    
     public function findUsersMail($mail =null)
     {
         if(is_null($mail)){

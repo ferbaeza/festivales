@@ -32,7 +32,7 @@ Admin Panel
 
         <div class="">
         <div class="header_img">
-            <img width="300" height="200" src="/public/assets/PublicSection/img/pop.jpg" alt="logo"> 
+            <img src="<?= base_url('assets/PublicSection/img/pop.jpg')?>" alt="logo"> 
         </div>
 
 
