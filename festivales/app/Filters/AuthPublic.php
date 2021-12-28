@@ -30,14 +30,13 @@ class AuthPublic implements FilterInterface
         $session = session();
 
         if(is_null($session->get("username"))){
-            return redirect()->route("");
+            return redirect()->route("index");
         }else{
+
             $rol = $session->get("rol");
             if ($rol ==  UserProfiles::ADMIN_ROLE){
                 return redirect()->route("home_admin");
             }
-            else 
-                return redirect()->route("home");
         }
 
     }

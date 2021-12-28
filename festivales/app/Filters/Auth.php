@@ -27,6 +27,7 @@ class Auth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
+       
         $session = session();
 
         if(is_null($session->get('username'))){

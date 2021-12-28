@@ -36,8 +36,6 @@ class AuthPrivate implements FilterInterface
             if ($rol ==  UserProfiles::APP_CLIENT_ROLE){
                 return redirect()->route("home");
             }
-            else 
-                return redirect()->route("home_admin");
         }
     }
 

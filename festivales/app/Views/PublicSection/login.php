@@ -66,7 +66,7 @@
 
 
 <?= $this->section('title')?>
-  Login
+  <?= $title?>
 <?= $this->endSection() ?>
 
 

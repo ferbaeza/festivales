@@ -25,10 +25,15 @@ class CategoriesModel extends Model
     {
         if(is_null($id)){
             return $this->findAll();
-        }
+        }else  if($id==""){
+           return $this->findAll();
+        }else{
         return $this->where(['id'=>$id])
             ->first();
+        }
     }
+    
+    
     public function findCategoriesName($name =null)
     {
         if(is_null($name)){

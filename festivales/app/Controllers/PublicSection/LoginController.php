@@ -15,7 +15,10 @@ class LoginController extends BaseController
     public function index()
 
     {
-        return view('/PublicSection/login');
+        $data=[
+            'title'=> "Login"
+        ];
+        return view('/PublicSection/login', $data);
     }
     public function login(){        
         try{

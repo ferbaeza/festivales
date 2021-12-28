@@ -27,7 +27,7 @@ $routes->setAutoRoute(false);
 //namespaces
 if(!defined('ADMIN_NAMESPACE')) define('ADMIN_NAMESPACE', 'App\Controllers\Admin');
 if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', 'App\Controllers\PublicSection');
-if(!defined('AJAX_NAMESPACE')) define('AJAX_NAMESPACE', 'App\Controllers\TestAjaxController');
+//if(!defined('AJAX_NAMESPACE')) define('AJAX_NAMESPACE', 'App\Controllers\TestAjaxController');
 if(!defined('REST_NAMESPACE')) define('REST_NAMESPACE', 'App\Controllers\Rest');
 // --------------------------------------------------------------------
 // Routes 
@@ -40,7 +40,7 @@ $routes->group('',function($routes){
     $routes->get('/logout', 'LogoutController::logout',['as'=>'logout','namespace' => PUBLIC_NAMESPACE] );
     $routes->post('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
     //$routes->get('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
-    $routes->get('/home', 'HomeController::home',['as'=>'home','namespace' => PUBLIC_NAMESPACE] );  //'filter'=>'auth',   , 'filter'=>'auth_public'
+    $routes->get('/home', 'HomeController::home',['as'=>'home','filter'=>'auth_public','namespace' => PUBLIC_NAMESPACE] );  //'filter'=>'auth',   , 'filter'=>'auth_public'
 });
 
 
@@ -48,13 +48,14 @@ $routes->group('',function($routes){
 // Admin Routes
 //-------------------------------------------------------------------
 $routes->group('/admin',function($routes){
-    $routes->get('home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
 });
 //--------------------------------------------------------------------
 // Rest Routes
 //-------------------------------------------------------------------
 $routes->group('rest',function($routes){
-    $routes->get('rest', 'Ejemplo::index',['namespace' => REST_NAMESPACE] ); 
+    $routes->get('categories', 'CategoriesController::index',['namespace' => REST_NAMESPACE] ); 
+    $routes->get('categories/(:any)', 'CategoriesController::index/$1',['namespace' => REST_NAMESPACE] ); 
 });
 
 
@@ -68,8 +69,8 @@ $routes->get('/home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin
 //--Route testAjax
 //--------------------------------------------------------------------
 $routes->group('/ajax',function($routes){
-    $routes->get('/documentacion/ajax', "Home::testAjax", ['as' => 'test_ajax', 'namespace' => AJAX_NAMESPACE]);
-    $routes->post('/documentacion/ajax', "Home::testAjax", ['as' => 'test_ajax', 'namespace' => AJAX_NAMESPACE]);
+    //$routes->get('/documentacion/ajax', "Home::testAjax", ['as' => 'test_ajax', 'namespace' => AJAX_NAMESPACE]);
+    //$routes->post('/documentacion/ajax', "Home::testAjax", ['as' => 'test_ajax', 'namespace' => AJAX_NAMESPACE]);
 });
 
 
