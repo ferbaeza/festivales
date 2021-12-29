@@ -13,7 +13,7 @@
         <script type="text/javascript" src="<?= base_url('assets/Admin/js/nav.js')  ?>"></script>
 <?= $this->endSection() ?>
 <?= $this->section('title')?>
-Admin Panel
+ <?= $title?>
 <?= $this->endSection() ?>
 
 

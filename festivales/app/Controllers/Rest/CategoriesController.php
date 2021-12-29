@@ -23,7 +23,7 @@ class CategoriesController extends RESTfulResourceController
             }
         }catch(\Exception $e){
             return $this->respond(null, 500, "Error ");
-            return $this->respond($e->getMessage(), 500, "Error grave");
+            return $this->respond($e->getMessage(), 500, "Error grave del servidor");
         }
     }
 
@@ -32,34 +32,53 @@ class CategoriesController extends RESTfulResourceController
     {
         try{
             $request = $this->request;
-            $data = $request->getJSON();
+            $body = $request->getJSON();
 
-            if(isset($data->id)){
-                //editar
+            $cat = new CategoriesModel();
+            //$category = $cat->where(['id'=>$id])->first();
+            $category = $cat->findCategoriesId($body->id);
+            if($category){
+                $cat->delete(['id'=>$body->id]);
+                return $this->respond($category , 200 , "Category deleted");
             }else{
-                //crear
+                return $this->respond($category, 404 , "Category not found");
             }
-
-            $id = $data->id;
-            return $this->respond(null, 200, "");
-            
         }catch(\Exception $e){
-            return $this->respond(null, 500, "");
+            return $this->respond(null, 500, "Error grave del servidor");
         }
     }
 
 
-    public function editCategory()
+    public function modify()
     {
         try{
+            $cat = new CategoriesModel();
             $request = $this->request;
-            $data = $request->getJSON();
-            $id = $data->id;
-            return $this->respond(null, 200, "");
+            $body = $request->getJSON();
+            if (isset($body->name)){
+                if (isset($body->id)){
+                    $category = $cat->where(['id'=>$body->id])->first();
+                    if ($category){
+                        $category->name= $body->name;
+                        $cat->save($category);
+                        return $this->respond($category, 200, "Category modify");
+                    }else{
+                        return $this->respond($category, 404, "Category not found");
+                    }
+                }else{
+                    $newcategory = new CategoriesModel();
+                    $newcategory->insert([
+                        'name'=>$body->name,
+                    ]);
+                    return $this->respond($newcategory, 200, "Category created right");
+                }
+            }
         }catch(\Exception $e){
-            return $this->respond(null, 500, "Error ");
+            return $this->respond(null, 500, "Error grave del servidor ");
         }
     }
+
+
 
 
 

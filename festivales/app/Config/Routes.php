@@ -56,6 +56,10 @@ $routes->group('/admin',function($routes){
 $routes->group('rest',function($routes){
     $routes->get('categories', 'CategoriesController::index',['namespace' => REST_NAMESPACE] ); 
     $routes->get('categories/(:any)', 'CategoriesController::index/$1',['namespace' => REST_NAMESPACE] ); 
+    $routes->delete('categories', 'CategoriesController::deleteCategory',['namespace' => REST_NAMESPACE] ); 
+    //$routes->delete('categories', 'CategoriesController::deleteCategory',['namespace' => REST_NAMESPACE] ); 
+    $routes->post('categories', 'CategoriesController::modify',['namespace' => REST_NAMESPACE] ); 
+    //$routes->post('categories', 'CategoriesController::modifyCategory',['namespace' => REST_NAMESPACE] ); CRear o modificar
 });
 
 

@@ -10,6 +10,9 @@ class HomeAdminController extends BaseController
 {
     public function home_admin()
     {   
+        $title=[
+            'title'=>'Admin Panel '
+        ];
         $util = new UtilLibrary();
         $session = session();
         $alldata= $session->get();
@@ -26,6 +29,6 @@ class HomeAdminController extends BaseController
         $user = new Users($data);
         //d($user);
         //$response = $util->getResponse("OK", "Session Iniciada", $data);
-        return view('Admin/home_admin');
+        return view('Admin/home_admin', $title);
     }
 }
