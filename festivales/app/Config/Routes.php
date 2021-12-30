@@ -29,6 +29,7 @@ if(!defined('ADMIN_NAMESPACE')) define('ADMIN_NAMESPACE', 'App\Controllers\Admin
 if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', 'App\Controllers\PublicSection');
 //if(!defined('AJAX_NAMESPACE')) define('AJAX_NAMESPACE', 'App\Controllers\TestAjaxController');
 if(!defined('REST_NAMESPACE')) define('REST_NAMESPACE', 'App\Controllers\Rest');
+if(!defined('COMMAND_NAMESPACE')) define('COMMAND_NAMESPACE', 'App\Controllers\Command');
 // --------------------------------------------------------------------
 // Routes 
 // --------------------------------------------------------------------
@@ -42,8 +43,6 @@ $routes->group('',function($routes){
     //$routes->get('/login', 'LoginController::login',['as'=>'login','namespace' => PUBLIC_NAMESPACE] );
     $routes->get('/home', 'HomeController::home',['as'=>'home','filter'=>'auth_public','namespace' => PUBLIC_NAMESPACE] );  //'filter'=>'auth',   , 'filter'=>'auth_public'
 });
-
-
 //--------------------------------------------------------------------
 // Admin Routes
 //-------------------------------------------------------------------
@@ -61,6 +60,15 @@ $routes->group('rest',function($routes){
     $routes->post('categories', 'CategoriesController::modify',['namespace' => REST_NAMESPACE] ); 
     //$routes->post('categories', 'CategoriesController::modifyCategory',['namespace' => REST_NAMESPACE] ); CRear o modificar
 });
+//--------------------------------------------------------------------
+// Command Routes
+//-------------------------------------------------------------------
+$routes->group('commands',function($routes){
+    $routes->cli('comandouno', 'Scripts::comandoUno',['namespace' => COMMAND_NAMESPACE] ); 
+    $routes->cli('comandodos', 'Scripts::comandoDos',['namespace' => COMMAND_NAMESPACE] ); 
+    $routes->cli('comandotres', 'Scripts::comandoTres',['namespace' => COMMAND_NAMESPACE] ); 
+});
+//--------------------------------------------------------------------
 
 
 
