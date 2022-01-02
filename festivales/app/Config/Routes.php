@@ -48,7 +48,25 @@ $routes->group('',function($routes){
 //-------------------------------------------------------------------
 $routes->group('/admin',function($routes){
     $routes->get('home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    //$routes->get('new', 'HomeAdminController::new',['as'=>'new','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('users_admin', 'UsersController::index',['as'=>'users_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('roles_admin', 'RolesController::index',['as'=>'roles_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('festivals_admin', 'FestivalsController::index',['as'=>'festivals_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('festivals_admin_edit', 'FestivalsController::edit',['as'=>'festivals_admin_edit','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('categories_admin', 'CategoriesController::index',['as'=>'categories_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('config_admin', 'ConfigController::index',['as'=>'config_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+
+    //DataTable
+    $routes->post('festivals_data', 'FestivalsController::getFestivalsData',['as'=>'festivals_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->post('users_data', 'UsersController::getUsersData',['as'=>'users_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->delete('festivals_delete', 'FestivalsController::delete',['as'=>'festivals_delete','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+
 });
+
+
+
+
+
 //--------------------------------------------------------------------
 // Rest Routes
 //-------------------------------------------------------------------

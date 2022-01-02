@@ -1,5 +1,5 @@
 <?php
-namespace APP\Libraries;
+namespace App\Libraries;
 
 class UtilLibrary{
     public function getResponse($status="", $message="", $data="" ){

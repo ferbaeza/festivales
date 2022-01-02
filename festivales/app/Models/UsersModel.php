@@ -31,7 +31,10 @@ class UsersModel extends Model
         return $this->where(['id'=>$id])
             ->first();
     }
-
+    public function findUsersDatatable($limitStart, $limitLenght) {
+        return $this->limit($limitLenght, $limitStart)
+                    ->find();
+    }
 
 
 

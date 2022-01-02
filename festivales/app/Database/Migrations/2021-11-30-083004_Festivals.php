@@ -38,6 +38,10 @@ class Festivals extends Migration
                 'constraint'       =>'255',
                 'null'             =>false,
             ],
+            'date'             =>[
+                'type'             =>'DATETIME',
+                'null'             =>false,
+            ],
             'image_url'             =>[
                 'type'             =>'VARCHAR',
                 'constraint'       =>'255',

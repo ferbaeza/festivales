@@ -11,7 +11,7 @@ class FestivalsModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = Festivals::class;
-    protected $allowedFields    = ['name', 'email', 'price', 'address', 'image_url', 'category_id'];
+    protected $allowedFields    = ['name', 'email', 'price', 'address', 'date', 'image_url', 'category_id'];
 
     // Dates
     protected $useTimestamps = true;
@@ -73,17 +73,24 @@ class FestivalsModel extends Model
         return $this->where(['email'=>$email])
             ->first();
     }
-
+    public function festDelete($id = null){
+        return $this -> where(['id' => $id])
+                     ->delete();
+    }
+    public function findFestivalsDatatable($limitStart, $limitLenght) {
+        return $this->limit($limitLenght, $limitStart)
+                    ->find();
+    }
 
 
 
 }
-$data= [
-    "name" => "Primavera Sound"
-];
-$fes= new Festivals($data);
-$fesModel= new FestivalsModel();
-$fesModel->save($fes);
+// $data= [
+//     "name" => "Primavera Sound"
+// ];
+// $fes= new Festivals($data);
+// $fesModel= new FestivalsModel();
+// $fesModel->save($fes);
 
-$festival= $fesModel->findFestivals();
-d($festival);
+// $festival= $fesModel->findFestivals();
+// d($festival);

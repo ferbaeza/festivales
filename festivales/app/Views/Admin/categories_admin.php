@@ -8,6 +8,13 @@
     <script type="text/javascript">
         $(document).ready(function(){
             console.log('READY!');
+
+
+
+
+
+
+
         });
     </script>
         <script type="text/javascript" src="<?= base_url('assets/Admin/js/nav.js')  ?>"></script>
@@ -25,7 +32,7 @@
 <body id="body-pd">
     <header class="header" id="header">
         <div class="header_toggle"> 
-            <i class='bx bx-menu' id="header-toggle"> </i> Inicio
+            <i class='bx bx-menu' id="header-toggle"> </i> Categories
             
         </div>        
 
@@ -40,7 +47,7 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div> 
-                <a href="home_admin" class="nav_logo"> 
+                <a href="#" class="nav_logo"> 
                     <i class='fas fa-solar-panel'></i> 
                     <span class="nav_logo-name">Panel Admin</span> 
                 </a>
@@ -81,10 +88,10 @@
     <!--Container Main start-->
     <div class="container">
         <div class="height-100 bg-light m-auto ">
-            <h1 class="h1 text-center">Bienvenido al Panel Admin</h1>
-            <h3 class="h3  text-center">Desde aqui se podran gestionar los contenidos de nuestra app</h3>
-
+            <h1 class="h1 text-center">Bienvenido <?= $session->get("username");  ?></h1>
+            <h1 class="h1 text-center">Categories Panel Admin</h1>
         </div>
+
     </div>
     <!--Container Main end-->
 

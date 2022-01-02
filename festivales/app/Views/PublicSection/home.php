@@ -21,9 +21,9 @@ Public Home
 
 <div class="homePublic">
     <div class="container">
-    <div class="btn-group mb-3 rounded ms-1" role="group" aria-label="Basic example">
-    <a style="margin-right:30px" href="<?= route_to("logout")?>"><button type="button" class="btn btn-dark rounded ms-1">Logout </button></a>
-        <h1 class="shadow p-3 mb-5 bg-body rounded ms-1">Name <?= $session->get("username");  ?></h1>
+        <div class="user mx-auto text-center">
+            <p id="titulo" class="h3 mx-5 primary">Home Festivals </p><span class="h1 text-center"> <?= $session->get("username");  ?></span>
+            <a class="mx-4 mt-2" href="<?= route_to("logout")?>"><button type="button" class="btn btn-dark rounded ms-1">Logout </button></a>
     </div>
 
         

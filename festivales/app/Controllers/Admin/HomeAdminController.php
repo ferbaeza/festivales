@@ -31,4 +31,19 @@ class HomeAdminController extends BaseController
         //$response = $util->getResponse("OK", "Session Iniciada", $data);
         return view('Admin/home_admin', $title);
     }
+
+
+
+    
+    // public function new()
+    // {   
+    //     $title=[
+    //         'title'=>'New'
+    //     ];
+    //     return view('Admin/new', $title);
+    // }
+
+
+
+
 }
