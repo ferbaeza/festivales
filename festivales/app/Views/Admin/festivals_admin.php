@@ -105,12 +105,19 @@
                         }
                     });
                 });
+                $('#new').on('click',  function(){
+                    console.log("New Festival");
+                    window.location.href = "<?= route_to('festivals_add') ?>";
+
+                });            
+
 
                 $('#festivals_datatable tbody').on('click', '.editBtn', function(){
                     console.log("Modify_OK");
                     var data = festivalsDatatable.row($(this).parents('tr')).data();
                     console.log(data);
                     console.log(data.id);
+                    window.location.href = "<?= route_to('festivals_add') ?>/"+data.id;
 
                 });            
 
@@ -198,6 +205,8 @@
         <div class="height-100 bg-light m-auto ">
             <h1 class="h1 text-center">Bienvenido <?= $session->get("username");  ?></h1>
             <h1 class="h1 text-center">Festivals Panel Admin</h1>
+            <button type="submit" class="btn btn-primary mb-3 mx-3" id="new">New Entry</button>
+
             <table id="festivals_datatable" class="display" style="width:100%">
             <thead>
                 <tr>

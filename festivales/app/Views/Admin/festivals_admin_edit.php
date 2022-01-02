@@ -8,6 +8,38 @@
     <script type="text/javascript">
         $(document).ready(function(){
             console.log('READY!');
+            $('#form_festival').on("submit", function(event){
+                    event.preventDefault();
+                    let data = new FormData(this);
+                    $.ajax({
+                        url: "<?= route_to('save_festival') ?>",
+                        type: "POST",
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        async: true,
+                        timeout: 5000,
+                        beforeSend:(xhr) =>{
+
+                        },
+                        success: (response) =>{
+                            window.history.back();
+                        },
+                        error: (xhr, status, error) =>{
+                            console.log(error);
+                            alert("Se ha producido un error");
+                        },
+                        complete: () =>{
+
+                        }
+                    });
+                });
+
+
+
+
+
         });
     </script>
         <script type="text/javascript" src="<?= base_url('assets/Admin/js/nav.js')  ?>"></script>
@@ -82,7 +114,38 @@
     <div class="container">
         <div class="height-100 bg-light m-auto ">
             <h1 class="h1 text-center">Bienvenido <?= $session->get("username");  ?></h1>
-            <h1 class="h1 text-center">Edit Festivals </h1>
+            <h1 class="h1 text-center"><?= $title ?></h1>
+
+
+
+            <form class="formulario" id="form_festival" method="POST" >
+                <input style="display: none;" type="text" id="id" class="form-control" name="id" value="<?= $festival->id?>">
+                <label class="form-label" for="name">Nombre</label>
+                <input type="text" id="name" class="form-control" name="name" value="<?= $festival->name?>">
+
+                <label class="form-label" for="email">Email</label>
+                <input type="text" id="email" class="form-control" name="email" value="<?= $festival->email?>">
+
+                <label class="form-label" for="date">Fecha</label>
+                <input type="date" id="date" class="form-control" name="date" value="<?= $festival->getDateInputFormat($festival->date)?>">
+
+                <label class="form-label" for="price">Price</label>
+                <input type="number" id="price" class="form-control" name="price" value="<?= $festival->price?>">
+
+                <label class="form-label" for="address">Direccion</label>
+                <input type="text" id="address" class="form-control" name="address" value="<?= $festival->address?>">
+
+                <label class="form-label" for="category_id">Categoria ID</label>
+                <select class="form-select" name="category_id">
+                    <?php foreach($category as $cat): ?>
+                            <option value="<?=$cat->id?>"<?php if($cat->id == $festival->category_id):?> selected <?php endif ?>>
+                                <?=$cat->name?>
+                            </option>
+                        <?php endforeach ?>
+                </select>
+                <button class="btn btn-primary mt-3" id="formulario" type="submit">Guardar</button>
+            </form>
+      
 
         </div>
     </div>

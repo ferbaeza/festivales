@@ -56,11 +56,18 @@ $routes->group('/admin',function($routes){
     $routes->get('categories_admin', 'CategoriesController::index',['as'=>'categories_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
     $routes->get('config_admin', 'ConfigController::index',['as'=>'config_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
 
-    //DataTable
-    $routes->post('festivals_data', 'FestivalsController::getFestivalsData',['as'=>'festivals_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
-    $routes->post('users_data', 'UsersController::getUsersData',['as'=>'users_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
-    $routes->delete('festivals_delete', 'FestivalsController::delete',['as'=>'festivals_delete','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    //DataTable Festivals
+    $routes->post('festivals_data', 'FestivalsController::getFestivalsData',['as'=>'festivals_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //Get Data
+    $routes->delete('festivals_delete', 'FestivalsController::delete',['as'=>'festivals_delete','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //Delete data 
+    $routes->get('festivals_add', 'FestivalsController::addFestival',['as'=>'festivals_add','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] ); //Add data 
+    $routes->get('festivals_add/(:any)', 'FestivalsController::addFestival/$1',['filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //Edit Data 
+    $routes->post('save_festival', 'FestivalsController::saveNewFestival',['as'=>'save_festival','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] ); //Add data 
 
+
+
+    //DataTable Users
+    $routes->post('users_data', 'UsersController::getUsersData',['as'=>'users_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] ); //Get Data
+    
 });
 
 

@@ -17,7 +17,7 @@ class FestivalSeeder extends Seeder
 
         $festivals=[];
 
-        for($i=0; $i<=7; $i++){
+        for($i=0; $i<=12; $i++){
             $faker = Factory::create();
 
             $created= $faker->dateTime();

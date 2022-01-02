@@ -29,9 +29,12 @@ class FestivalsModel extends Model
     {
         if(is_null($id)){
             return $this->findAll();
-        }
+        }else  if($id==""){
+            return $this->findAll();
+        }else{
         return $this->where(['id'=>$id])
             ->first();
+        }
     }
     public function findFestivalsName($name =null)
     {
