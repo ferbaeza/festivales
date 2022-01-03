@@ -66,7 +66,7 @@ class Scripts extends BaseController
         $response = file_get_contents("https://www.villena.es/feed", false, stream_context_create($arrContextOptions));
         $data = new SimpleXMLElement($response);
         //Asi se imprime el objeto con todo lo que tiene dentro
-        CLI::write($response);
+        //CLI::write($response);
         $items = $data->channel->item;
         $y=0;
         foreach($items as $i){

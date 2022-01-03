@@ -20,20 +20,19 @@ class FestivalSeeder extends Seeder
         for($i=0; $i<=12; $i++){
             $faker = Factory::create();
 
-            $created= $faker->dateTime();
-            $updated= $faker->dateTime();
-            $day= new Time('+46 days');
-            $today= new Time();
+            $date= new Time('+46 days');
+            $created = new Time('-12 days');
+            $updated= new Time();
 
             $fes=[
                 'name' => $faker->state,
                 'email'=> $faker->email,
                 'price'=> $faker->numberBetween($min = 10, $max = 60),
                 'address'=> $faker->streetAddress,
-                'date'=> $day->format('Y-m-d H:i:s'),
+                'date'=> $date->format('Y-m-d H:i:s'),
                 'image_url'=> $faker->imageUrl($width = 640, $height = 480),
                 'created_at' => $created->format('Y-m-d H:i:s'),
-                'updated_at' => $today->format('Y-m-d H:i:s'),
+                'updated_at' => $updated->format('Y-m-d H:i:s'),
             ];
             array_push($festivals,$fes);
 

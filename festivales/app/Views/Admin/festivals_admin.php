@@ -123,12 +123,6 @@
 
             });
 
-
-
-
-
-
-
         });
    
     </script>
@@ -167,11 +161,11 @@
                     <span class="nav_logo-name">Panel Admin</span> 
                 </a>
                 <div class="nav_list"> 
-                    <a href="home_admin" class="nav_link active"> 
+                    <a href="home_admin" class="nav_link "> 
                         <i class='fas fa-home'></i>
                         <span class="nav_name">Inicio</span> </a> 
 
-                    <a href="<?= route_to("festivals_admin")?>" class="nav_link"> 
+                    <a href="<?= route_to("festivals_admin")?>" class="nav_link active"> 
                         <i class='fas fa-music'></i> 
                         <span class="nav_name">Festivales</span> </a> 
 

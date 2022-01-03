@@ -50,6 +50,11 @@ class CategoriesModel extends Model
         return $this->where(['updated_at'=>$updated_at])
             ->first();
     } 
+    public function findDatatable($limitStart, $limitLenght) {
+        return $this->limit($limitLenght, $limitStart)
+                    ->find();
+    }
+
 
 
 }

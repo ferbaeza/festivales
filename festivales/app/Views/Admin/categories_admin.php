@@ -5,17 +5,74 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
-    <script type="text/javascript">
+<script type="text/javascript">
         $(document).ready(function(){
-            console.log('READY!');
+        console.log('CATEGORIES__READY!');
+        var columnsDefinition = [
+                {
+                    "targets": 0,
+                    "render": function (data, type, row, meta) {
+                        return row["id"];
+                    }
+                },
+                {
+                    "targets": 1,
+                    "render": function (data, type, row, meta) {
+                        return row["name"];
+                    }
+                },
+                {
+                    "targets": 2,
+                    "render": function (data, type, row, meta) {
+                        return '<button class="btn-dark deleteBtn"><i class="fa fa-trash"></i></button> <button class="btn-dark editBtn"><i class="fa fa-edit"></i></button>';
+                    }
+                }
+            ]
+            $(document).ready( function () {
+                let Datatable= $('#datatable').DataTable({
+                    "processing": true, //Para mostrar el loading
+                    "responsive": true,
+                    "serverSide": true, //Activar Ajax
+                    "searching": false, //Si queremos que apareza la barra buscador
+                    "columnDefs": columnsDefinition, //Array de columnas que hemos definido arriba
+                    "fnDrawCallback": function (oSettings) {
+                        if (oSettings._DisplayLength >= oSettings.fnRecordsTotal())
+                            $(oSettings.nTableWrapper).find('.dataTables_paginated').hide();
+                        else 
+                            $(oSettings.nTableWrapper).find('.dataTables_paginate').show();
+                    },
+                    "ajax": {
+                        url: "<?= route_to('categories_data') ?>",
+                        type: "POST",
+                        data: function () {},
+                        error: function (data) {
+                            console.log(data);
+                    }
+                    }
+                });
+                $('#datatable').on('click', '.deleteBtn', function(){
+                console.log("Delete_OK");
+                //obtener datos de esa fila
+                var data = Datatable.row($(this).parents('tr')).data();
+                console.log(data);
+                console.log(data.id);
+                });
+                $('#new').on('click',  function(){
+                    console.log("New ");
+                });            
 
 
+                $('#datatable tbody').on('click', '.editBtn', function(){
+                    console.log("Modify_OK");
+                    var data = Datatable.row($(this).parents('tr')).data();
+                    console.log(data);
+                    console.log(data.id);
+                });            
 
-
-
-
+            });
 
         });
+   
     </script>
         <script type="text/javascript" src="<?= base_url('assets/Admin/js/nav.js')  ?>"></script>
 <?= $this->endSection() ?>
@@ -52,7 +109,7 @@
                     <span class="nav_logo-name">Panel Admin</span> 
                 </a>
                 <div class="nav_list"> 
-                    <a href="home_admin" class="nav_link active"> 
+                    <a href="home_admin" class="nav_link "> 
                         <i class='fas fa-home'></i>
                         <span class="nav_name">Inicio</span> </a> 
 
@@ -60,7 +117,7 @@
                         <i class='fas fa-music'></i> 
                         <span class="nav_name">Festivales</span> </a> 
 
-                    <a href="<?= route_to("categories_admin")?>" class="nav_link"> 
+                    <a href="<?= route_to("categories_admin")?>" class="nav_link active"> 
                         <i class='fas fa-th'></i> 
                         <span class="nav_name">Categorias</span> </a> 
 
@@ -90,6 +147,20 @@
         <div class="height-100 bg-light m-auto ">
             <h1 class="h1 text-center">Bienvenido <?= $session->get("username");  ?></h1>
             <h1 class="h1 text-center">Categories Panel Admin</h1>
+                        <button type="submit" class="btn btn-primary mb-3 mx-3" id="new">New Entry</button>
+
+            <table id="datatable" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+    
+    
+        </table>
+
         </div>
 
     </div>

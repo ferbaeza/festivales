@@ -80,7 +80,7 @@
     </div>
     <!--Container Main start-->
     <div class="container">
-        <div class="height-100 bg-light m-auto ">
+        <div class="bg-light m-auto ">
             <h1 class="h1 text-center">Bienvenido al Panel Admin</h1>
             <h3 class="h3  text-center">Desde aqui se podran gestionar los contenidos de nuestra app</h3>
 

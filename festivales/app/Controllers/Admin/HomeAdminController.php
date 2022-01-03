@@ -35,13 +35,13 @@ class HomeAdminController extends BaseController
 
 
     
-    // public function new()
-    // {   
-    //     $title=[
-    //         'title'=>'New'
-    //     ];
-    //     return view('Admin/new', $title);
-    // }
+    public function new()
+    {   
+        $title=[
+            'title'=>'New'
+        ];
+        return view('Admin/new', $title);
+    }
 
 
 

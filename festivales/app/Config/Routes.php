@@ -48,7 +48,7 @@ $routes->group('',function($routes){
 //-------------------------------------------------------------------
 $routes->group('/admin',function($routes){
     $routes->get('home_admin', 'HomeAdminController::home_admin',['as'=>'home_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
-    //$routes->get('new', 'HomeAdminController::new',['as'=>'new','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
+    $routes->get('new', 'HomeAdminController::new',['as'=>'new','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
     $routes->get('users_admin', 'UsersController::index',['as'=>'users_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
     $routes->get('roles_admin', 'RolesController::index',['as'=>'roles_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
     $routes->get('festivals_admin', 'FestivalsController::index',['as'=>'festivals_admin','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //'filter'=>'auth_private', 
@@ -63,8 +63,8 @@ $routes->group('/admin',function($routes){
     $routes->get('festivals_add/(:any)', 'FestivalsController::addFestival/$1',['filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //Edit Data 
     $routes->post('save_festival', 'FestivalsController::saveNewFestival',['as'=>'save_festival','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] ); //Add data 
 
-
-
+    //DataTable Categories
+    $routes->post('categories_data', 'CategoriesController::getData',['as'=>'categories_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] );  //Get Data
     //DataTable Users
     $routes->post('users_data', 'UsersController::getUsersData',['as'=>'users_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] ); //Get Data
     
