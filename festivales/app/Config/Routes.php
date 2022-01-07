@@ -29,6 +29,7 @@ if(!defined('ADMIN_NAMESPACE')) define('ADMIN_NAMESPACE', 'App\Controllers\Admin
 if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', 'App\Controllers\PublicSection');
 //if(!defined('AJAX_NAMESPACE')) define('AJAX_NAMESPACE', 'App\Controllers\TestAjaxController');
 if(!defined('REST_NAMESPACE')) define('REST_NAMESPACE', 'App\Controllers\Rest');
+if(!defined('API_NAMESPACE')) define('API_NAMESPACE', 'App\Controllers\Rest');
 if(!defined('COMMAND_NAMESPACE')) define('COMMAND_NAMESPACE', 'App\Controllers\Command');
 // --------------------------------------------------------------------
 // Routes 
@@ -69,10 +70,20 @@ $routes->group('/admin',function($routes){
     $routes->post('users_data', 'UsersController::getUsersData',['as'=>'users_data','filter'=>'auth_private','namespace' => ADMIN_NAMESPACE] ); //Get Data
     
 });
-
-
-
-
+//--------------------------------------------------------------------
+// Api Routes
+//-------------------------------------------------------------------
+$routes->group('api',function($routes){
+    //$routes->resource('index');
+    $routes->get('festivals', 'Ejemplo::fest',['namespace' => API_NAMESPACE] ); 
+    $routes->get('index', 'Ejemplo::index',['namespace' => API_NAMESPACE] ); 
+});
+$routes->group('notes',function($routes){
+    //$routes->post('notes', 'Notes::modify',['namespace' => REST_NAMESPACE] ); 
+    $routes->post('notes', 'Notes::create',['namespace' => REST_NAMESPACE] ); 
+    $routes->get('notes', 'Notes::index',['namespace' => API_NAMESPACE] ); 
+});
+//--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
 // Rest Routes
