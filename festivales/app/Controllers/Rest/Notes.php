@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Rest;
 
-use App\Models\Notes as ModelsNotes;
+use App\Models\NotesModel ;
 use CodeIgniter\RESTful\ResourceController as RESTfulResourceController;
 
 
@@ -14,7 +14,7 @@ class Notes extends RESTfulResourceController
     public function index()
     {
         try{
-            $notes = new ModelsNotes();
+            $notes = new NotesModel();
             $notes = $notes->findAll();
             return $this->respond($notes, 200, "OK");
             
@@ -30,18 +30,21 @@ class Notes extends RESTfulResourceController
         // }
 
 
-        $newNote = new ModelsNotes();
-        $newNote->insert([
-             'title'=>$form->title,
-             'body'=>$form->body,
-         ]);
-         return $this->respond($newNote, 200, "Note created right");
+        $newNote = new NotesModel();
+        $data = [
+            'title'=>$form->title,
+            'body'=>$form->body,
+        ];
+        $newNote->insert($data);
+        
+        $note= $newNote->findNotesId();
+        return $this->respondCreated(["message => Created OK", "data"=>$note]);
 
     }    
     public function modify()
     {
         try{
-            $not = new ModelsNotes();
+            $not = new NotesModel();
             $request = $this->request;
             $body = $request->getJSON();
             if (isset($body->name)){
@@ -55,7 +58,7 @@ class Notes extends RESTfulResourceController
                         return $this->respond($notes, 404, "Category not found");
                     }
                 }else{
-                    $newNote = new ModelsNotes();
+                    $newNote = new NotesModel();
                     $newNote->insert([
                         'title'=>$body->title,
                         'body'=>$body->body,

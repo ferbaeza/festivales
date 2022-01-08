@@ -13,6 +13,7 @@ class InitSeeder extends Seeder
         $this->call('RoleSeeder');
         $this->call('FestivalSeeder');
         $this->call('UserSeeder');
+        $this->call('Notes');
 
     }
 }

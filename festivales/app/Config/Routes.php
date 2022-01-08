@@ -75,12 +75,12 @@ $routes->group('/admin',function($routes){
 //-------------------------------------------------------------------
 $routes->group('api',function($routes){
     //$routes->resource('index');
-    $routes->get('festivals', 'Ejemplo::fest',['namespace' => API_NAMESPACE] ); 
-    $routes->get('index', 'Ejemplo::index',['namespace' => API_NAMESPACE] ); 
+    $routes->get('festivals', 'FestivalsController::index',['namespace' => API_NAMESPACE] ); 
+    $routes->get('index', 'FestivalsController::index',['namespace' => API_NAMESPACE] ); 
 });
 $routes->group('notes',function($routes){
-    //$routes->post('notes', 'Notes::modify',['namespace' => REST_NAMESPACE] ); 
-    $routes->post('notes', 'Notes::create',['namespace' => REST_NAMESPACE] ); 
+    //$routes->post('notes', 'Notes::modify',['namespace' => API_NAMESPACE] ); 
+    $routes->post('create', 'Notes::create',['namespace' => API_NAMESPACE] ); 
     $routes->get('notes', 'Notes::index',['namespace' => API_NAMESPACE] ); 
 });
 //--------------------------------------------------------------------

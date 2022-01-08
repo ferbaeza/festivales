@@ -9,7 +9,7 @@ class Notes extends Seeder
 {
     public function run()
     {
-        $fabrik = new Fabricator(\App\Models\Notes::class);
+        $fabrik = new Fabricator(\App\Models\NotesModel::class);
         $fabrik->create(7);
 
     }

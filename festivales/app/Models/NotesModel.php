@@ -4,15 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use Faker\Generator;
+use App\Entities\Notes;
 
-class Notes extends Model
+class NotesModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'notes';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
-    protected $returnType       = 'array';
+    protected $returnType       = Notes::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['title', 'body'];
@@ -64,4 +65,16 @@ class Notes extends Model
             'body' => $faker->sentence(6)
         ];
     }
+    public function findNotesId($id =null)
+    {
+        if(is_null($id)){
+            return $this->findAll();
+        }else  if($id==""){
+            return $this->findAll();
+        }else{
+        return $this->where(['id'=>$id])
+            ->first();
+        }
+    }
+
 }
