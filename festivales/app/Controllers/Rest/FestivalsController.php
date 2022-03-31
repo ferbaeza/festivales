@@ -2,10 +2,10 @@
 
 namespace App\Controllers\Rest;
 
-use CodeIgniter\RESTful\ResourceController as RESTfulResourceController;
 use App\Models\FestivalsModel;
+use CodeIgniter\RESTful\ResourceController;
 
-class FestivalsController extends RESTfulResourceController
+class FestivalsController extends ResourceController
 {
     protected $festival= "app\Models\FestivalsModel"; 
     protected $format= "json";
